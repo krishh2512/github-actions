@@ -16,8 +16,9 @@ jobs:
             - name: checkout
               uses: actions/checkout@v2
             - name: print date on windows
-              shell: powershell
-              run: PowerShell -Command "get-date"              
+              shell: pwsh
+              run: |
+                 write-output "Hello World"             
    job3:
        needs: [job1, job2]
        print-date:
