@@ -2,7 +2,7 @@ name: print date
 on: [push]
 jobs:
     job1:
-       runs-on: ununtu-latest
+       runs-on: ubuntu-latest
        steps:
        - name: checkout
          uses: actions/checkout@v2
