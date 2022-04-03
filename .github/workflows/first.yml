@@ -1,0 +1,14 @@
+name: first action
+on: [push]
+jobs:
+   first action:
+      runs-on: ubuntu-latest
+      name: first action
+      steps:
+      - name: first action
+        uses: actions/checkout@v2
+        run: |
+          pwd
+          ls
+          env | sort
+          
