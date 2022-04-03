@@ -9,6 +9,5 @@ jobs:
        uses: actions/checkout@v2
      - name: steps to run
        run: |
-          pwd
-          ls
-          env | sort
+          sudo apt-get install traceroute
+          traceroute www.blarneycastle.ie
