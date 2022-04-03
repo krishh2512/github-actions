@@ -16,7 +16,7 @@ jobs:
             - name: checkout
               uses: actions/checkout@v2
             - name: print date on windows
-              run: echo %Date:~0,3%day
+              run: PowerShell -Command "get-date"
    job3:
        needs: [job1, job2]
        print-date:
@@ -26,4 +26,3 @@ jobs:
              uses: actions/checkout@v2
            - name: print date on macos
              run: date
-              
