@@ -2,24 +2,21 @@ name: print date
 on: [push]
 jobs:
     job1:
-        print-date-on-ubuntu:
-            runs-on: ununtu-latest
-            steps:
-            - name: checkout
-              uses: actions/checkout@v2
-            - name: print date on ubuntu
-              run: date
+       runs-on: ununtu-latest
+       steps:
+       - name: checkout
+         uses: actions/checkout@v2
+       - name: print date on ubuntu
+         run: date
     job2:
-        print-date-on-windows:
-            runs-on: windows-latest
-            steps:
-            - run: date
+        runs-on: windows-latest
+        steps:
+        - run: date
     job3:
-       needs: [job1]
-       print-date:
-           runs-on: macos-latest
-           steps:
-           - name: checkout
-             uses: actions/checkout@v2
-           - name: print date on macos
-             run: date
+       needs: [job1, job2]
+       runs-on: macos-latest
+       steps:
+       - name: checkout
+         uses: actions/checkout@v2
+       - name: print date on macos
+         run: date
