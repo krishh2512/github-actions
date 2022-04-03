@@ -10,5 +10,8 @@ jobs:
      - name: steps to run
        run: |
           pwd
+          netstat -a | less
           sudo apt-get install traceroute
           traceroute www.blarneycastle.ie
+          
+
