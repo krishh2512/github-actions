@@ -13,11 +13,7 @@ jobs:
         print-date-on-windows:
             runs-on: windows-latest
             steps:
-            - name: checkout
-              uses: actions/checkout@v2
-            # - name: Hello world
-            #   shell: pwsh
-            #   run: write-output "Hello World"
+            - run: date
    job3:
        needs: [job1, job2]
        print-date:
