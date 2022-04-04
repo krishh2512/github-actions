@@ -1,25 +1,28 @@
-name: Auto merge owner PR
-
+name: Auto Merge Owner PR
+#workflow triggered for PR opened/reopened by owner
 on:
-  #workflow triggered for PR opened/reopened by owner
   pull_request:
-      types: [opened, reopened]
-jobs:
-    lint:
-       runs-on: ubuntu-latest
-       steps:
+    types: [opened, reopened]
 
-        - uses: actions/checkout@v1
-        - uses: actions/setup-python@v1
-          with:
-              python-version: 3.8
-        - name: flake8 and pylint
-          run: |
-            pip install -r requirements.txt
-            flake8 --ignore=E501,E231 *.py tests/*.py
-            pylint --errors-only --disable=C0301 --disable=C0326 *.py tests/*.py
-        - name: unit test
-          run: python -m unittest --verbose --failfast
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v1
+
+    - uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+
+    - name: flake8 and pylint
+      run: |
+        pip install -r requirements.txt
+        flake8 --ignore=E501,E231 *.py tests/*.py
+        pylint --errors-only --disable=C0301 --disable=C0326 *.py tests/*.py
+
+    - name: unit test
+      run: python -m unittest --verbose --failfast
 
   merge:
     if: github.actor == 'krishh2512'
