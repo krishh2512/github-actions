@@ -1,6 +1,6 @@
 name: pipeline
 
-on: workflow_dispatch
+on: [ push, workflow_dispatch ]
 
 jobs:
    test:
@@ -8,7 +8,7 @@ jobs:
       steps:
        - uses: actions/checkout@v2
        - run: python hello.py
-    build:
+   build:
        needs: [test]
        runs-on: ubuntu-latest
        steps:
