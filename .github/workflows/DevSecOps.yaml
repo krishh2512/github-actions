@@ -46,7 +46,7 @@ jobs:
     steps:
     
     # Terraform Cloud Authentication
-    - uses: hashicorp/terraform-cli@v2
+    - uses: hashicorp/setup-terraform@v2
     - name: Terraform Init
       run: terraform init
     - name: Terraform Plan
